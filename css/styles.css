@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap');
+
+/** ELEMENT */
+
+* {
+    --headerColor: rgba(100, 100, 100, 0.3);
+    --darkBlue: rgb(32, 23, 114);
+    --red: rgb(200, 0, 0);
+
+    background-color: rgba(0,0,0,0);
+    outline: 0px groove white;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: black;
+}
+
+li, a, button {
+    text-decoration: none;
+    list-style: none;
+    cursor: pointer;
+}
+
+header {
+    background-color: var(--headerColor);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+}
+
+button { 
+    padding: 6px 25px;
+    background-color: rgba(0, 0, 0, 0.719);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+
+}
+
+button:hover {
+    background-color: var(--darkBlue);
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: pink;
+    z-index: -1;
+}
+
+/** CLASS */
+
+.link-logo {
+    height: 32px;
+    max-width: 32px;
+}
+
+.nav-links li {
+    display: inline-block;
+    padding: 0px 5px;
+}
+
+.nav-links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav-links li a:hover {
+    color: var(--red);
+    font-size: 19px;
+}
+
+.medium-font {
+    font-size: 24px;
+}
+
+.medium-font * {
+    font-size: 24px;
+}
+
+.big-font {
+    font-size: 30px;
+}
+
+.big-font * {
+    font-size: 30px;
+}
+
+.transparent-container {
+    background-color: rgb(100,100,100,0.2);
+}
+
+.fit {
+    width: fit-content;
+}
+.padding5 {
+    padding: 5px;
+}
+
+.red {
+    color: var(--red);
+}
+
+/** ID */
+
+#header-logo {
+    width: 65px;
+    height: 65px;
+    margin: 5px 0px;
+}
+
+#contact-button {
+    color: white;
+}
+
+#hero {
+    color: black;
+    text-align: center;
+    margin-top: 20vh;
+}
+
+#software {
+    text-align: center;
+    border-radius: 5px;
+}
+
+#software-links {
+    padding: 0;
+}
+
+#software li {
+    display: inline-block;
+    margin: 0px 5px;
+}
