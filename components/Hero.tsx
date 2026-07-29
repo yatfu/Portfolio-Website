@@ -1,18 +1,12 @@
 'use client';
 
-import dynamic from 'next/dynamic';
-
-const Spline = dynamic(() => import('@splinetool/react-spline'), { ssr: false });
-
-// Replace with your own exported Spline scene URL,
-// e.g. https://prod.spline.design/XXXXXXXXXXXXXXXX/scene.splinecode
-const SPLINE_SCENE_URL = 'https://prod.spline.design/8YMDyL-djdpB8GNA/scene.splinecode';
+import Scene from "./Scene";
 
 export default function Hero() {
   return (
     <section id="hero" className="relative h-screen w-full overflow-hidden">
       <div className="absolute inset-0">
-        <Spline scene={SPLINE_SCENE_URL} className="h-full w-full" />
+        <Scene />
       </div>
 
       <a
