@@ -19,7 +19,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
   return (
     <article className="mx-auto max-w-3xl px-4 py-16">
       <Link href="/projects" className={cn(buttonBase, buttonVariants.ghost, buttonSizes.sm)}>
-        ← Back to Projects
+        ← Back to Featured Work
       </Link>
 
       <h1 className="mt-4 font-retro text-xl">{project.title}</h1>

@@ -20,3 +20,18 @@
 body {
   @apply bg-background text-foreground;
 }
+
+/* 8-bit "raised button" border: hard pixelated outline (no blur/anti-aliasing)
+   plus a light/dark bevel that flips on press, like an NES menu button. */
+.pixel-border {
+  position: relative;
+  box-shadow:
+    inset 4px 4px 0 0 rgba(255, 255, 255, 0.25),
+    inset -4px -4px 0 0 rgba(0, 0, 0, 0.4);
+}
+
+.pixel-border:active {
+  box-shadow:
+    inset -4px -4px 0 0 rgba(255, 255, 255, 0.25),
+    inset 4px 4px 0 0 rgba(0, 0, 0, 0.4);
+}
