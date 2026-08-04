@@ -18,7 +18,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16">
-      <Link href="/projects" className={cn(buttonBase, buttonVariants.ghost, buttonSizes.sm)}>
+      <Link href="/#work" className={cn(buttonBase, buttonVariants.ghost, buttonSizes.sm)}>
         ← Back to Featured Work
       </Link>
 
@@ -32,14 +32,13 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
       <ul className="mt-4 flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (
-          <li key={tag} className="bg-muted px-2 py-0.5 text-xs text-muted-foreground">
-            {tag}
+          <li key={tag.label} className={cn(tag.color ?? 'bg-muted', 'px-2 py-0.5 text-xs text-foreground')}>
+            {tag.label}
           </li>
         ))}
       </ul>
 
-      <p className={cn(cardStyles, 'mt-6 text-sm text-muted-foreground')}>{project.content}</p>
-
+      
       <div className="mt-6 flex gap-2">
         {project.liveUrl && (
           <a
@@ -61,6 +60,30 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             Source Code
           </a>
         )}
+      </div>
+
+      <div className="mt-6 flex flex-col gap-4">
+        {project.sections.map((section) => (
+          <section key={section.title} className={cardStyles}>
+            <h2 className="mb-2 font-retro text-sm">{section.title}</h2>
+            <div className="flex flex-col gap-3 text-sm text-muted-foreground">
+              {section.blocks.map((block, i) => {
+                if (block.type === 'paragraph') {
+                  return <p key={i}>{block.text}</p>;
+                }
+                if (block.type === 'image') {
+                  // eslint-disable-next-line @next/next/no-img-element -- unknown aspect ratio; let it size naturally instead of cropping via next/image's fill mode
+                  return <img key={i} src={block.src} alt={block.alt} className="w-full" />;
+                }
+                return (
+                  <video key={i} src={block.src} poster={block.poster} controls className="w-full">
+                    Your browser doesn&apos;t support embedded video.
+                  </video>
+                );
+              })}
+            </div>
+          </section>
+        ))}
       </div>
     </article>
   );

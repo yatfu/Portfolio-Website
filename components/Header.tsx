@@ -1,7 +1,12 @@
-import Link from 'next/link';
-import { cn, buttonBase, buttonVariants, buttonSizes } from '@/lib/utils';
+import Link from "next/link";
+import { cn, buttonBase, buttonVariants, buttonSizes } from "@/lib/utils";
 
-const navLinkStyles = cn(buttonBase, buttonVariants.secondary, buttonSizes.default, 'pixel-border');
+const navLinkStyles = cn(
+  buttonBase,
+  buttonVariants.secondary,
+  buttonSizes.default,
+  "pixel-border"
+);
 
 export default function Header() {
   return (
@@ -11,12 +16,12 @@ export default function Header() {
           Keanu Lagundimao
         </Link>
         <nav className="flex items-center gap-2">
-          <Link href="/projects" className={navLinkStyles}>
-            Featured Work
-          </Link>
           <a href="#about" className={navLinkStyles}>
             About
           </a>
+          <Link href="/#work" className={navLinkStyles}>
+            Featured Work
+          </Link>
           <a href="#contact" className={navLinkStyles}>
             Contact
           </a>

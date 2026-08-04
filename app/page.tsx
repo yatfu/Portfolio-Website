@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Hero from '@/components/Hero';
-import ScrollAudio from '@/components/ScrollAudio';
-import { cn, buttonBase, buttonVariants, buttonSizes, cardStyles } from '@/lib/utils';
+import { projects } from '@/data/projects';
+import { cn, buttonBase, buttonVariants, buttonSizes } from '@/lib/utils';
+
 export default function Home() {
   return (
     <div>
       <Hero />
-      <ScrollAudio />
       <section id="intro" className="mx-auto max-w-xl px-4 py-16 text-center">
         <Image
           src="/profile-placeholder.svg"
@@ -22,7 +22,7 @@ export default function Home() {
           I'm an aspiring developer, currently sushi chef.
         </p>
         <div className="mt-6 flex items-center justify-center gap-2">
-          <Link href="/projects" className={cn(buttonBase, buttonVariants.default, buttonSizes.default)}>
+          <Link href="#work" className={cn(buttonBase, buttonVariants.default, buttonSizes.default)}>
             View My Work
           </Link>
           <a href="#contact" className={cn(buttonBase, buttonVariants.secondary, buttonSizes.default)}>
@@ -31,14 +31,27 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="work" className="mx-auto max-w-3xl px-4 py-16">
-        <h2 className="mb-3 font-retro text-base">Featured Work</h2>
-        <div className={cardStyles}>
-          <p className="text-sm text-muted-foreground">
-            <Link href="/projects" className="text-foreground underline underline-offset-2">
-              View all featured work
+      <section id="work" className="mx-auto max-w-5xl px-4 py-16">
+        <h2 className="mb-6 font-retro text-base">Featured Work</h2>
+        <div className="grid grid-cols-2 gap-1">
+          {projects.map((project) => (
+            <Link
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+              className="group relative aspect-square overflow-hidden bg-muted"
+            >
+              {project.coverImage ? (
+                <Image src={project.coverImage} alt={project.title} fill className="object-cover" />
+              ) : (
+                <span className="flex h-full w-full items-center justify-center p-2 text-center text-sm text-muted-foreground">
+                  {project.title}
+                </span>
+              )}
+              <span className="absolute inset-0 flex items-center justify-center bg-background p-2 text-center text-sm font-medium opacity-0 transition-opacity group-hover:opacity-100">
+                {project.title}
+              </span>
             </Link>
-          </p>
+          ))}
         </div>
       </section>
     </div>
