@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { projects } from '@/data/projects';
 import { cn, buttonBase, buttonVariants, buttonSizes, cardStyles } from '@/lib/utils';
@@ -24,15 +23,9 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
       <h1 className="mt-4 font-retro text-xl">{project.title}</h1>
 
-      {project.coverImage && (
-        <div className={cn(cardStyles, 'relative mt-6 aspect-video w-full')}>
-          <Image src={project.coverImage} alt={project.title} fill className="object-cover" />
-        </div>
-      )}
-
       <ul className="mt-4 flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (
-          <li key={tag.label} className={cn(tag.color ?? 'bg-muted', 'px-2 py-0.5 text-xs text-foreground')}>
+          <li key={tag.label} className={cn(buttonBase, buttonSizes.sm, tag.color ?? 'bg-muted', 'text-foreground')}>
             {tag.label}
           </li>
         ))}
@@ -72,8 +65,15 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
                   return <p key={i}>{block.text}</p>;
                 }
                 if (block.type === 'image') {
-                  // eslint-disable-next-line @next/next/no-img-element -- unknown aspect ratio; let it size naturally instead of cropping via next/image's fill mode
-                  return <img key={i} src={block.src} alt={block.alt} className="w-full" />;
+                  return (
+                    <figure key={i}>
+                      {/* eslint-disable-next-line @next/next/no-img-element -- unknown aspect ratio; let it size naturally instead of cropping via next/image's fill mode */}
+                      <img src={block.src} alt={block.alt} className="w-full" />
+                      {block.description && (
+                        <figcaption className="mt-1.5 text-xs text-muted-foreground">{block.description}</figcaption>
+                      )}
+                    </figure>
+                  );
                 }
                 return (
                   <video key={i} src={block.src} poster={block.poster} controls className="w-full">
