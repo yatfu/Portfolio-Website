@@ -6,11 +6,11 @@ export type ProjectTag = {
 
 // Building blocks for a section's body. Mix and match in any order:
 //   { type: 'paragraph', text: '...' }
-//   { type: 'image', src: '/your-image.png', alt: '...' }        — src can be a /public path or full URL
+//   { type: 'image', src: '/your-image.png', alt: '...', description: '...' }   — src can be a /public path or full URL. alt is for accessibility (not shown); description is an optional visible caption below the image.
 //   { type: 'video', src: '/your-video.mp4', poster: '/optional-poster.png' }
 export type ProjectBlock =
   | { type: "paragraph"; text: string }
-  | { type: "image"; src: string; alt: string }
+  | { type: "image"; src: string; alt: string; description?: string }
   | { type: "video"; src: string; poster?: string };
 
 export type ProjectSection = {
@@ -32,51 +32,9 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "project-boilerplate",
-    title: "Project Title",
-    summary: "One or two sentence summary of the project.",
-    coverImage: "",
-    tags: [{ label: "Tag One" }, { label: "Tag Two", color: "bg-blue-900" }],
-    liveUrl: "",
-    repoUrl: "",
-    sections: [
-      {
-        title: "Overview",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "What the project is and why you built it.",
-          },
-        ],
-      },
-      {
-        title: "Process",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "Key decisions, tools, and how you approached it.",
-          },
-          {
-            type: "paragraph",
-            text: "Add an image or video block here — see the ProjectBlock type above for the shape.",
-          },
-        ],
-      },
-      {
-        title: "Outcome",
-        blocks: [
-          {
-            type: "paragraph",
-            text: "What shipped, what you learned, results or metrics if any.",
-          },
-        ],
-      },
-    ],
-  },
-  {
     slug: "budget-viz-next",
     title: "Budget Viz",
-    summary: "A streamlined budget visualization tool",
+    summary: "A streamlined budget visualization tool built for users who prefer manual budgeting",
     coverImage: "/budget-vis-next-snapshot.PNG",
     tags: [
       { label: "NextJS", color: "bg-orange-950" },
@@ -94,7 +52,7 @@ export const projects: Project[] = [
           {
             type: "paragraph",
             text: `I built a full-stack budgeting application that helps users track their spending over time. 
-            Users can manage monthly expense categories, visualize their budgets on a single dashboard, and explore analytics such as yearly spending trends and net cash flow.`,
+            Users can log in and manage monthly expense categories, visualize their budgets on a single dashboard, and explore analytics such as yearly spending trends and net cash flow.`,
           },
           {
             type: "paragraph",
@@ -107,7 +65,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: "The tech stack includes NextJS, PostgreSQL, Tailwind, ChartJS, Vercel, and Neon.",
+            text: "The tech stack includes NextJS, PostgreSQL, Tailwind, ChartJS, Vercel, and Neon. Authentication is custom using sessions stored in the database, and cookies. ",
           },
           {
             type: "image",
@@ -147,7 +105,7 @@ export const projects: Project[] = [
         ],
       },
       {
-        title: "Process",
+        title: "Challenges",
         blocks: [
           {
             type: "paragraph",
@@ -160,8 +118,9 @@ export const projects: Project[] = [
           },
           {
             type: "paragraph",
-            text: `One of my biggest mistakes was getting the diff function wrong. My function instead duplicated the entire table, which was then pushed into the database.
-          Because of this my monthly compute limit maxed out in less than 10 calls, without any visible error.`,
+            text: `One of my biggest mistakes was getting the diff function wrong. The function was supposed to compare the old data to the new data, which it did. However, when the user logs in and the user data is loaded, it loads the data of ALL the months. 
+            When I queried the old data, i only included the data of the existing month, because you can only edit one month at a time. All of the data from other months would then count as new expenses to add to the database. This resulted in my database doubling in size every save,
+            leading to me burning through my monthly compute limit within less than an hour.`,
           },
         ],
       },
@@ -185,7 +144,8 @@ export const projects: Project[] = [
           {
             type: "paragraph",
             text: `Budget Viz is a good demonstration of the functionality, but needs improvements to reliability and security, and structure for long term development:
-              There is no protection against api call spam, so I would implement that. If I were to continue to develop the app, I would add a CI workflow for testing. `,
+              There is no protection against api call spam, so I would implement that. If I were to continue to develop the app, I would add a CI workflow for testing. I would also improve the security of the custom auth system or use an auth library. 
+              Redis could be used to increase performance since many actions currently require a database call, including switching between months in the dashboard.`,
           },
         ],
       },
@@ -193,15 +153,154 @@ export const projects: Project[] = [
   },
   {
     slug: "crossing-rain",
-    title: "Crossing Rain Website",
-    summary: "The main website of idol group Crossing Rain.",
-    coverImage: "",
+    title: "Crossing Rain Official Site",
+    summary: "Official website for idol group Crossing Rain",
+    coverImage: "/crossingRain.gif",
     tags: [
       { label: "Webflow", color: "bg-orange-950" },
       { label: "Blender", color: "bg-blue-950" },
-      { label: "FL Studio", color: "bg-blue-950" },
       { label: "Figma", color: "bg-blue-950" },
+      { label: "FL Studio", color: "bg-blue-950" },
     ],
+    liveUrl: "https://crossingrain.webflow.io/",
+    sections: [
+      {
+        title: "Overview",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "Crossing Rain's website is a multimedia showcase of the idol group Crossing Rain, with the goals of strengthening the credibility of Crossing Rain as a Hawaii based idol group, and increasing revenue through their fan club, Thunder League. This website was part of a total overhaul of the group's creative direction.",
+          },
+          {
+            type: "image",
+            src:"/crossingRain.gif", alt:"",
+          },
+          {
+            type: "paragraph",
+            text: "My responsibility was to ideate, design, prototype, and develop the website and art assets.",
+          },
+          {
+            type: "paragraph",
+            text: "Along with the creation of the website, I had to ensure that maintanence of the website was feasible for people unfamiliar with web development. "
+          },
+        ],
+      },
+      {
+        title: "Technologies",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "Figma was used for design, prototyping, and the collaboration hub. I chose webflow as the platform for the website because it is built with UI components similar to React. , 3D assets and scene built in Blender, ",
+          },
+        ],
+      },
+      {
+        title: "Process",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "The ideation process was challenging because of how open-ended my assignment was. There was no real direction or clear features that were given, just that they wanted a creative website. ",
+          },
+          {
+            type: "paragraph",
+            text: "The first website mockup was intended to be a visual upgrade of their previous website, adding inspiration from recent music videos of Crossing rain and websites from K-Pop groups. This iteration was rejected because it was too similar to an actual website, and the project manager wanted something less standard.",
+          },
+          {
+            type: "image",
+            src:"/crossingRain/Ideation.png", alt:"",
+            description:"The first website mockup inspired by Crossing rain music videos and official K-Pop websites"
+          },
+          {
+            type: "paragraph",
+            text: "The second website mockup was designed more like a game UI than a website. The idea was originally a Spline3D scene that had interactive 3D components. Because it would be difficult for other people to maintain the website, I decided to replace it with images.",
+          },
+          {
+            type: "image",
+            src:"/crossingRain/Ideation2.png", alt:"",
+            description:"The second website mockup inspired by video game UI and my room. "
+          },
+          {
+            type: "image",
+            src:"/crossingRain/3Dscene2.png", alt:"",
+            description:"Blender scene - all models were created from scratch for cohesion"
+          },
+          {
+            type: "image",
+            src:"/crossingRain/Prototype.png", alt:"",
+            description:"Flow chart prototype"
+          },
+        ],
+      },
+      {
+        title: "Reflection",
+        blocks: [
+          {
+            type: "paragraph",
+            text: ``,
+          },
+          {
+            type: "paragraph",
+            text: `My biggest failure working on this project was not simplifying the website enough for non-technical editors. It was easy to edit text,
+             but editing the components themselves was difficult, on a similar level to editing a React component. Even the creative director struggled with simple changes like adding another home button.
+             In hindsight, I should have used a simpler CMS to develop the website on. Component-based UI is intuitive for programmers but not for designers.
+             I would probably use Framer instead, where editing UI acts more like Photoshop elements.`,
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "doraku-menu",
+    title: "Dynamic Mobile Menu",
+    summary: "Prototype for a restaurant menu with JSON as input, a fully custom website as output",
+    coverImage: "",
+    tags: [
+      { label: "React", color: "bg-orange-950" },
+      {label: "HTML/CSS/JS", color: "bg-orange-950"},
+      { label: "Netlify"},
+    ],
+    liveUrl: "https://dorakumenu.netlify.app/",
+    repoUrl: "https://github.com/yatfu/Online-Menu---Doraku/tree/main",
+    sections: [
+      {
+        title: "Overview",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "What the project is and why you built it.",
+          },
+        ],
+      },
+      {
+        title: "Process",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "Key decisions, tools, and how you approached it.",
+          },
+          {
+            type: "paragraph",
+            text: "Add an image or video block here — see the ProjectBlock type above for the shape.",
+          },
+        ],
+      },
+      {
+        title: "Outcome",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "What shipped, what you learned, results or metrics if any.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "project-boilerplate",
+    title: "Project Title",
+    summary: "One or two sentence summary of the project.",
+    coverImage: "",
+    tags: [{ label: "Tag One" }, { label: "Tag Two", color: "bg-blue-900" }],
     liveUrl: "",
     repoUrl: "",
     sections: [
