@@ -28,6 +28,9 @@ export type Project = {
   repoUrl?: string;
   // Rendered on the project page as titled subsections, in order.
   sections: ProjectSection[];
+  // Set to false to keep this off the homepage's Featured Work grid and list it
+  // on the Other Projects page instead. Omit (or true) to keep it featured.
+  featured?: boolean;
 };
 
 export const projects: Project[] = [
@@ -94,13 +97,13 @@ export const projects: Project[] = [
           },
           {
             type: "paragraph",
-            text: `This app is designed with one goal: to minimize the amount of time and cognitive effort required from the user to manage their budget. 
+            text: `This app is designed to minimize the amount of time and cognitive effort required from the user to manage their budget. 
           This means choosing the simplest budgeting method, choosing only the most useful graphs, and simplifying the UI. It also means choosing one budgeting style, which might not suit everybody.`,
           },
           {
             type: "paragraph",
             text: `The only compromise to this goal was choosing manual over automatic (linking bank accounts) budget entry. I chose manual over automatic because entering the data yourself
-          is so important for remembering it. Automatic entry is better for visualizing the data as a whole, but manual entry gives the user more intentionality, encouraging them to engage with their spending decisions.`,
+          is important for remembering it. Automatic entry is better for visualizing the data as a whole, but manual entry gives the user more intentionality, encouraging them to engage with their spending decisions.`,
           },
         ],
       },
@@ -129,23 +132,28 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: `I used both ChatGPT and Claude Code for different things. ChatGPT replies faster than Claude's fastest models, so I used that to help navigate implementation and help me if I wanted to figure out a solution to a problem without having it done for me, e.g. the save function.
+            text: `I used both ChatGPT and Claude Code for different things. ChatGPT replies faster than Claude's fastest models, so I used that to help navigate implementation and help me through sticking points, e.g. the save function.
           `,
           },
           {
             type: "paragraph",
-            text: `I created a workflow for Claude agents to fix Typescript errors. I also had it manage (not create) the UI for my entire app, ensuring consistency. Both of these tasks are easily handled through AI workflows, and saved enormous amounts of time otherwise spent fixing manually.`,
+            text: `I created workflows for Claude agents to fix Typescript errors and manage the UI styling. Both of these tasks are easily handled through AI workflows, and saved enormous amounts of time otherwise spent fixing manually.`,
           },
         ],
       },
       {
-        title: "Future Improvements",
+        title: "Reflection",
         blocks: [
           {
             type: "paragraph",
-            text: `Budget Viz is a good demonstration of the functionality, but needs improvements to reliability and security, and structure for long term development:
-              There is no protection against api call spam, so I would implement that. If I were to continue to develop the app, I would add a CI workflow for testing. I would also improve the security of the custom auth system or use an auth library. 
-              Redis could be used to increase performance since many actions currently require a database call, including switching between months in the dashboard.`,
+            text: `Budget Viz is a good demonstration of the functionality, but is surface level. It needs improvements to reliability and performance, and structure for long term development.
+              There is no protection against api call spam. if I were to continue to develop the app, I would first add a CI workflow for testing.
+              Redis could be used to increase performance since many actions currently require a database call, including switching between months in the dashboard.
+              Account security isn't the biggest concern with this app, but I would also improve the custom auth system or use an auth library. `,
+          },
+          {
+            type: "paragraph",
+            text: `My next project would focus more on these deeper topics within software engineering.`,
           },
         ],
       },
@@ -158,9 +166,9 @@ export const projects: Project[] = [
     coverImage: "/crossingRain.gif",
     tags: [
       { label: "Webflow", color: "bg-orange-950" },
-      { label: "Blender", color: "bg-blue-950" },
-      { label: "Figma", color: "bg-blue-950" },
-      { label: "FL Studio", color: "bg-blue-950" },
+      { label: "Blender", color: "bg-cyan-950" },
+      { label: "Figma", color: "bg-cyan-950" },
+      { label: "FL Studio", color: "bg-cyan-950" },
     ],
     liveUrl: "https://crossingrain.webflow.io/",
     sections: [
@@ -169,7 +177,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: "Crossing Rain's website is a multimedia showcase of the idol group Crossing Rain, with the goals of strengthening the credibility of Crossing Rain as a Hawaii based idol group, and increasing revenue through their fan club, Thunder League. This website was part of a total overhaul of the group's creative direction.",
+            text: "Crossing Rain's website was part of an overhaul of the group's creative direction. It's a multimedia showcase of the idol group Crossing Rain, with the goals of strengthening the credibility of Crossing Rain as a Hawaii based idol group, and increasing revenue through their fan club, Thunder League. ",
           },
           {
             type: "image",
@@ -181,7 +189,7 @@ export const projects: Project[] = [
           },
           {
             type: "paragraph",
-            text: "Along with the creation of the website, I had to ensure that maintanence of the website was feasible for people unfamiliar with web development. "
+            text: `Along with the creation of the website, I had to ensure that maintanence of the website was feasible for people unfamiliar with the project since I would not be doing it after it was completed. `
           },
         ],
       },
@@ -199,7 +207,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: "The ideation process was challenging because of how open-ended my assignment was. There was no real direction or clear features that were given, just that they wanted a creative website. ",
+            text: "The ideation process was challenging because of how open-ended my assignment was. Because the art direction was changing, I ideated and implemented until  ",
           },
           {
             type: "paragraph",
@@ -236,14 +244,18 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: ``,
+            text: `Overall this project was a success, especially as my first time freelancing. I successfully completed a project not knowing what or how I was making it, not knowing the tools I was using, until I figured it out.`,
+          },
+          {
+            type: "paragraph",
+            text: `One lesson I learned the hard way was to ask for feedback often. I designed all the pages for the website before I showed it to the team, and needed to scrap the whole thing. A lot of effort would be saved by asking for feedback before committing to implementation. `,
           },
           {
             type: "paragraph",
             text: `My biggest failure working on this project was not simplifying the website enough for non-technical editors. It was easy to edit text,
              but editing the components themselves was difficult, on a similar level to editing a React component. Even the creative director struggled with simple changes like adding another home button.
              In hindsight, I should have used a simpler CMS to develop the website on. Component-based UI is intuitive for programmers but not for designers.
-             I would probably use Framer instead, where editing UI acts more like Photoshop elements.`,
+             I would probably use Framer instead, where editing UI acts more like Photoshop elements. The current iteration of the website has issues because someone wanted to add a feature after the website was finished. `,
           },
         ],
       },
@@ -251,9 +263,9 @@ export const projects: Project[] = [
   },
   {
     slug: "doraku-menu",
-    title: "Dynamic Mobile Menu",
+    title: "Doraku Sushi Mobile Menu",
     summary: "Prototype for a restaurant menu with JSON as input, a fully custom website as output",
-    coverImage: "",
+    coverImage: "/dorakumenu/Capture2.PNG",
     tags: [
       { label: "React", color: "bg-orange-950" },
       {label: "HTML/CSS/JS", color: "bg-orange-950"},
@@ -267,7 +279,11 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: "What the project is and why you built it.",
+            text: "This project is a mobile menu that dynamically renders its components from JSON data. This solves a major problem that I noticed restaurants face as their menu changes constantly due to price changes, recipe changes, and menu changes.",
+          },
+          {
+            type: "image",
+            src:"/dorakumenu/Capture.PNG", alt:"",
           },
         ],
       },
@@ -276,11 +292,11 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: "Key decisions, tools, and how you approached it.",
+            text: "The implementation was straightforward, turn Excel data into JSON data and build components around the JSON data. However there were a few issues outside of implementation.",
           },
           {
             type: "paragraph",
-            text: "Add an image or video block here — see the ProjectBlock type above for the shape.",
+            text: "User cellular speed and usage was one bottleneck I had to deal with. Many customers at Doraku still have older phones and have limited data plans. One of my ideas was to have each menu item pop up an image, but it caused the app to be too slow and used too much data. ",
           },
         ],
       },
@@ -289,7 +305,7 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: "What shipped, what you learned, results or metrics if any.",
+            text: "One thing I took away from this was the value of having user feedback. The slow-loading issue wasn't an issue until someone else used it because I was always testing from my own phone with 5G. ",
           },
         ],
       },
