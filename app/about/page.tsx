@@ -1,20 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import ContactLinks from '@/components/ContactLinks';
 import { cn, buttonBase, buttonVariants, buttonSizes } from '@/lib/utils';
 
 export default function About() {
   return (
     <article className="mx-auto max-w-xl px-4 py-16 text-center">
-      <Link href="/" className={cn(buttonBase, buttonVariants.ghost, buttonSizes.sm)}>
-        ← Back to Home
-      </Link>
-
       <Image
         src="/profile-placeholder.svg"
         alt="Profile placeholder"
-        width={96}
-        height={96}
-        className="mx-auto mb-4 mt-6 h-24 w-24 rounded-full object-cover"
+        width={160}
+        height={160}
+        className="mx-auto mb-4 h-40 w-40 rounded-full object-cover"
       />
 
       <h1 className="font-retro text-2xl sm:text-3xl">About Me</h1>
@@ -27,10 +24,14 @@ export default function About() {
         <p>Replace this with more about your background, interests, and what you're looking for next.</p>
       </div>
 
-      <div className="mt-6 flex items-center justify-center gap-2">
-        <a href="#contact" className={cn(buttonBase, buttonVariants.secondary, buttonSizes.default)}>
-          Get In Touch
-        </a>
+      <div className="mt-6">
+        <ContactLinks />
+      </div>
+
+      <div className="mt-6 flex justify-center">
+        <Link href="/" className={cn(buttonBase, buttonVariants.ghost, buttonSizes.sm)}>
+          ← Back to Home
+        </Link>
       </div>
     </article>
   );
