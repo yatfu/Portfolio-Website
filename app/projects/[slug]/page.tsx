@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { projects } from '@/data/projects';
+import { projects } from '@/data/featuredWork';
 import { cn, buttonBase, buttonVariants, buttonSizes, cardStyles } from '@/lib/utils';
 
 export function generateStaticParams() {
@@ -17,11 +17,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-16">
-      <Link href="/#work" className={cn(buttonBase, buttonVariants.ghost, buttonSizes.sm)}>
-        ← Back to Featured Work
-      </Link>
-
-      <h1 className="mt-4 font-retro text-xl">{project.title}</h1>
+      <h1 className="font-retro text-xl">{project.title}</h1>
 
       <ul className="mt-4 flex flex-wrap gap-1.5">
         {project.tags.map((tag) => (
@@ -84,6 +80,12 @@ export default async function ProjectDetail({ params }: { params: Promise<{ slug
             </div>
           </section>
         ))}
+      </div>
+
+      <div className="mt-6 flex justify-center">
+        <Link href="/work" className={cn(buttonBase, buttonVariants.ghost, buttonSizes.sm)}>
+          ← Back to Featured Work
+        </Link>
       </div>
     </article>
   );
