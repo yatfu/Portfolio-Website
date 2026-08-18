@@ -1,9 +1,10 @@
-import EmailCopy from '@/components/EmailCopy';
-import { cn, buttonBase, buttonVariants, buttonSizes } from '@/lib/utils';
+import EmailCopy from "@/components/EmailCopy";
+import { cn, buttonBase, buttonVariants, buttonSizes } from "@/lib/utils";
 
 export default function ContactLinks() {
   return (
     <div className="flex flex-wrap items-center justify-center gap-2">
+      <EmailCopy />
       <a
         href="https://github.com/yatfu"
         target="_blank"
@@ -20,7 +21,6 @@ export default function ContactLinks() {
       >
         LinkedIn
       </a>
-      <EmailCopy />
     </div>
   );
 }

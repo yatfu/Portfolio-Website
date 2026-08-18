@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Press_Start_2P } from 'next/font/google';
 import Header from '@/components/Header';
+import LogoTileBackground from '@/components/LogoTileBackground';
 import './globals.css';
 
 const pressStart2P = Press_Start_2P({
@@ -17,9 +18,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={pressStart2P.variable}>
-      <body>
-        <Header />
-        {children}
+      <body className="relative isolate overflow-x-hidden">
+        <LogoTileBackground />
+        <div className="relative z-10">
+          <Header />
+          {children}
+        </div>
       </body>
     </html>
   );

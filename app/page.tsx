@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Hero from '@/components/Hero';
+import Menu from '@/components/Menu';
 import ContactLinks from '@/components/ContactLinks';
 import { cn, buttonBase, buttonVariants, buttonSizes } from '@/lib/utils';
 
@@ -26,6 +27,7 @@ export default function Home() {
           <ContactLinks />
         </div>
       </section>
+      <Menu />
     </div>
   );
 }

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: oklch(0.145 0 0);
+  --background: #141414;
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
@@ -21,6 +21,26 @@ body {
   @apply bg-background text-foreground;
 }
 
+.logo-tile-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  pointer-events: none;
+}
+
+.logo-tile-background > div {
+  aspect-ratio: 1;
+}
+
+.logo-tile {
+  width: min(190%, 210px);
+  height: auto;
+  filter: invert(1);
+  opacity: 0.18;
+}
+
 /* 8-bit "raised button" border: hard pixelated outline (no blur/anti-aliasing)
    plus a light/dark bevel that flips on press, like an NES menu button. */
 .pixel-border {
@@ -34,4 +54,11 @@ body {
   box-shadow:
     inset -4px -4px 0 0 rgba(255, 255, 255, 0.25),
     inset 4px 4px 0 0 rgba(0, 0, 0, 0.4);
+}
+
+/* The menu is a panel, not a control, so it should not look pressed when clicked. */
+.menu-panel:active {
+  box-shadow:
+    inset 4px 4px 0 0 rgba(255, 255, 255, 0.25),
+    inset -4px -4px 0 0 rgba(0, 0, 0, 0.4);
 }
