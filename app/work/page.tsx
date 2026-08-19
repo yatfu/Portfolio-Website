@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { projects } from '@/data/featuredWork';
-import { additionalProjects } from '@/data/additionalProjects';
+import { additionalWork } from '@/data/additionalWork';
 import { cn, buttonBase, buttonVariants, buttonSizes } from '@/lib/utils';
 
 export default function Work() {
@@ -58,67 +58,58 @@ export default function Work() {
                 </div>
               </div>
 
-              {project.tags.length > 0 && (
-                <ul className="mt-2 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <li
-                      key={tag.label}
-                      className={cn(buttonBase, buttonSizes.sm, tag.color ?? 'bg-muted', 'text-foreground')}
-                    >
-                      {tag.label}
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <ul className="mt-2 flex flex-wrap gap-1.5">
+                {project.tags.map((tag) => (
+                  <li
+                    key={tag.label}
+                    className={cn(buttonBase, buttonSizes.sm, tag.color ?? 'bg-muted', 'text-foreground')}
+                  >
+                    {tag.label}
+                  </li>
+                ))}
+              </ul>
             </div>
           ))}
         </div>
 
       </section>
 
-      <section id="additional-projects" className="mt-16">
-        <h2 className="mb-6 font-retro text-base">Additional Projects</h2>
+      <section id="additional-work" className="mt-16">
+        <h2 className="mb-6 font-retro text-base">Additional Work</h2>
 
-        {additionalProjects.length === 0 ? (
-          <p className="text-muted-foreground">No additional projects yet.</p>
-        ) : (
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
-            {additionalProjects.map((item) => (
-              <div key={item.title} className="flex flex-col">
-                <div className="relative aspect-square overflow-hidden bg-muted">
-                  {item.coverImage && (
-                    <Image src={item.coverImage} alt={item.title} fill className="object-cover" />
-                  )}
-                </div>
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
+          {additionalWork.map((item) => (
+            <article
+              key={item.title}
+              className={cn(
+                buttonBase,
+                'pixel-border min-h-40 w-full flex-col items-start justify-start bg-secondary p-4 text-left text-secondary-foreground'
+              )}
+            >
+              <h3 className="text-sm leading-relaxed">{item.title}</h3>
+              <p className="mt-3 font-sans text-sm leading-relaxed text-muted-foreground">
+                {item.summary}
+              </p>
 
-                <h3 className="mt-2 font-retro text-sm">{item.title}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{item.summary}</p>
-
-                {item.tags.length > 0 && (
-                  <ul className="mt-2 flex flex-wrap gap-1.5">
-                    {item.tags.map((tag) => (
-                      <li
-                        key={tag.label}
-                        className={cn(buttonBase, buttonSizes.sm, tag.color ?? 'bg-muted', 'text-foreground')}
-                      >
-                        {tag.label}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-              </div>
-            ))}
-          </div>
-        )}
+              <ul className="mt-auto flex flex-wrap gap-1.5 pt-4">
+                {item.tags.map((tag) => (
+                  <li
+                    key={tag.label}
+                    className={cn(buttonBase, buttonSizes.sm, tag.color ?? 'bg-muted', 'text-foreground')}
+                  >
+                    {tag.label}
+                  </li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section id="other-projects" className="mt-16">
         <h2 className="mb-6 font-retro text-base">Other Projects</h2>
 
-        {otherProjects.length === 0 ? (
-          <p className="text-muted-foreground">No other projects yet — check back soon.</p>
-        ) : (
-          <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-4">
             {otherProjects.map((project) => (
               <div key={project.slug} className="group">
                 <h3 className="mb-2 font-retro text-sm">{project.title}</h3>
@@ -164,22 +155,19 @@ export default function Work() {
                   </div>
                 </div>
 
-                {project.tags.length > 0 && (
-                  <ul className="mt-2 flex flex-wrap gap-1.5">
-                    {project.tags.map((tag) => (
-                      <li
-                        key={tag.label}
-                        className={cn(buttonBase, buttonSizes.sm, tag.color ?? 'bg-muted', 'text-foreground')}
-                      >
-                        {tag.label}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                <ul className="mt-2 flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <li
+                      key={tag.label}
+                      className={cn(buttonBase, buttonSizes.sm, tag.color ?? 'bg-muted', 'text-foreground')}
+                    >
+                      {tag.label}
+                    </li>
+                  ))}
+                </ul>
               </div>
             ))}
-          </div>
-        )}
+        </div>
       </section>
 
       <div className="mt-10 flex justify-center">

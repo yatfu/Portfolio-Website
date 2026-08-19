@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import MenuEmailCopy from "@/components/MenuEmailCopy";
-import { projects } from "@/data/featuredWork";
-import { additionalProjects } from "@/data/additionalProjects";
+import { projects, type ProjectTag } from "@/data/featuredWork";
+import { additionalWork } from "@/data/additionalWork";
+import { cn, buttonBase, buttonSizes } from "@/lib/utils";
 
 type MenuCategoryProps = {
   title: string;
@@ -23,6 +24,7 @@ type MenuRowProps = {
   link: string;
   title: string;
   description?: string;
+  tags?: ProjectTag[];
   external?: boolean;
   download?: boolean;
 };
@@ -31,6 +33,7 @@ function MenuRow({
   link,
   title,
   description,
+  tags,
   external,
   download,
 }: MenuRowProps) {
@@ -49,6 +52,23 @@ function MenuRow({
         </span>
       </span>
       {description && <span className="text-m text-white">{description}</span>}
+      {tags && tags.length > 0 && (
+        <span className="mt-1.5 flex flex-wrap gap-1">
+          {tags.map((tag) => (
+            <span
+              key={tag.label}
+              className={cn(
+                buttonBase,
+                buttonSizes.sm,
+                tag.color ?? 'bg-muted',
+                'h-6 px-1.5 text-[10px] text-foreground'
+              )}
+            >
+              {tag.label}
+            </span>
+          ))}
+        </span>
+      )}
     </>
   );
 
@@ -91,23 +111,25 @@ export default function Menu() {
                   link={`/projects/${project.slug}`}
                   title={project.title}
                   description={project.summary}
+                  tags={project.tags}
                 />
               </li>
             ))}
           </MenuCategory>
 
-          <MenuCategory title="Additional Projects">
-            {additionalProjects.length === 0 ? (
+          <MenuCategory title="Additional Work">
+            {additionalWork.length === 0 ? (
               <li className="py-1.5 text-sm text-muted-foreground">
                 Nothing plated yet.
               </li>
             ) : (
-              additionalProjects.map((item) => (
+              additionalWork.map((item) => (
                 <li key={item.title}>
                   <MenuRow
-                    link="/work#additional-projects"
+                    link="/work#additional-work"
                     title={item.title}
                     description={item.summary}
+                    tags={item.tags}
                   />
                 </li>
               ))

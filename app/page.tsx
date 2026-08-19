@@ -18,13 +18,6 @@ export default function Home() {
           <Link href="/about" className={cn(buttonBase, buttonVariants.default, buttonSizes.default)}>
             Learn More About Me :)
           </Link>
-          <a href="/resume.pdf" download className={cn(buttonBase, buttonVariants.secondary, buttonSizes.default)}>
-            Resume
-          </a>
-        </div>
-
-        <div className="mt-3">
-          <ContactLinks />
         </div>
       </section>
       <Menu />
