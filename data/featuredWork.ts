@@ -37,13 +37,15 @@ export const projects: Project[] = [
   {
     slug: "budget-viz-next",
     title: "Budget Viz",
-    summary: "A streamlined budget visualization tool built for users who prefer manual budgeting",
+    summary:
+      "A full-stack budgeting platform for managing expenses and savings, with persistent data storage, authentication, and automated calculations + visualizations. ",
     coverImage: "/budget-vis-next-snapshot.PNG",
     tags: [
+      { label: "Typescript", color: "bg-orange-950" },
       { label: "NextJS", color: "bg-orange-950" },
       { label: "Tailwind CSS", color: "bg-orange-950" },
       { label: "PostgreSQL", color: "bg-blue-950" },
-      { label: "NodeJS", color: "bg-blue-950" },
+      { label: "Node.js", color: "bg-blue-950" },
       { label: "Vercel" },
     ],
     liveUrl: "https://budget-vis-next.vercel.app/",
@@ -59,7 +61,7 @@ export const projects: Project[] = [
           },
           {
             type: "paragraph",
-            text: `The main purpose of developing this app was to update my understanding of the current technology and explore AI tools within development workflow.`,
+            text: `The purpose of developing this app was to update my understanding of current technologies and explore AI tools within development workflow.`,
           },
         ],
       },
@@ -93,6 +95,11 @@ export const projects: Project[] = [
           {
             type: "image",
             src: "/budget-vis-next-snapshot.PNG",
+            alt: "Screenshot of budget visualizer app",
+          },
+          {
+            type: "image",
+            src: "/budget-vis-next2.PNG",
             alt: "Screenshot of budget visualizer app",
           },
           {
@@ -181,7 +188,8 @@ export const projects: Project[] = [
           },
           {
             type: "image",
-            src:"/crossingRain.gif", alt:"",
+            src: "/crossingRain.gif",
+            alt: "",
           },
           {
             type: "paragraph",
@@ -189,7 +197,7 @@ export const projects: Project[] = [
           },
           {
             type: "paragraph",
-            text: `Along with the creation of the website, I had to ensure that maintanence of the website was feasible for people unfamiliar with the project since I would not be doing it after it was completed. `
+            text: `Along with the creation of the website, I had to ensure that maintanence of the website was feasible for people unfamiliar with the project since I would not be doing it after it was completed. `,
           },
         ],
       },
@@ -215,8 +223,10 @@ export const projects: Project[] = [
           },
           {
             type: "image",
-            src:"/crossingRain/Ideation.png", alt:"",
-            description:"The first website mockup inspired by Crossing rain music videos and official K-Pop websites"
+            src: "/crossingRain/Ideation.png",
+            alt: "",
+            description:
+              "The first website mockup inspired by Crossing rain music videos and official K-Pop websites",
           },
           {
             type: "paragraph",
@@ -224,18 +234,23 @@ export const projects: Project[] = [
           },
           {
             type: "image",
-            src:"/crossingRain/Ideation2.png", alt:"",
-            description:"The second website mockup inspired by video game UI and my room. "
+            src: "/crossingRain/Ideation2.png",
+            alt: "",
+            description:
+              "The second website mockup inspired by video game UI and my room. ",
           },
           {
             type: "image",
-            src:"/crossingRain/3Dscene2.png", alt:"",
-            description:"Blender scene - all models were created from scratch for cohesion"
+            src: "/crossingRain/3Dscene2.png",
+            alt: "",
+            description:
+              "Blender scene - all models were created from scratch for cohesion",
           },
           {
             type: "image",
-            src:"/crossingRain/Prototype.png", alt:"",
-            description:"Flow chart prototype"
+            src: "/crossingRain/Prototype.png",
+            alt: "",
+            description: "Flow chart prototype",
           },
         ],
       },
@@ -264,12 +279,13 @@ export const projects: Project[] = [
   {
     slug: "doraku-menu",
     title: "Doraku Sushi Mobile Menu",
-    summary: "Prototype for a restaurant menu with JSON as input, a fully custom website as output",
+    summary:
+      "Prototype for a restaurant menu with JSON as input, a fully custom website as output",
     coverImage: "/dorakumenu/Capture2.PNG",
     tags: [
       { label: "React", color: "bg-orange-950" },
-      {label: "HTML/CSS/JS", color: "bg-orange-950"},
-      { label: "Netlify"},
+      { label: "HTML/CSS/JS", color: "bg-orange-950" },
+      { label: "Netlify" },
     ],
     liveUrl: "https://dorakumenu.netlify.app/",
     repoUrl: "https://github.com/yatfu/Online-Menu---Doraku/tree/main",
@@ -283,7 +299,8 @@ export const projects: Project[] = [
           },
           {
             type: "image",
-            src:"/dorakumenu/Capture.PNG", alt:"",
+            src: "/dorakumenu/Capture.PNG",
+            alt: "",
           },
         ],
       },
@@ -312,11 +329,23 @@ export const projects: Project[] = [
     ],
   },
   {
-    slug: "project-boilerplate",
-    title: "Project Title",
-    summary: "One or two sentence summary of the project.",
+    slug: "chatroom",
+    title: "Ephemeral Chat Platform - In Progress",
+    summary: `A project focused on system design. Developed a distributed real-time messaging system with multi-instance communication, persistent messaging, and automated 24-hour room expiration, following Scrum framework. 
+    Currently focusing on deeper topics such as deployment, scaling with load balancing, automation with CI/CD, reliability, and observability. `,
     coverImage: "",
-    tags: [{ label: "Tag One" }, { label: "Tag Two", color: "bg-blue-900" }],
+    tags: [
+      { label: "TypeScript", color: "bg-orange-950" },
+      { label: "NextJS", color: "bg-orange-950" },
+      { label: "Redis", color: "bg-blue-950" },
+      { label: "PostgreSQL", color: "bg-blue-950" },
+      { label: "WebSocket", color: "bg-blue-950" },
+      { label: "Docker", color: "bg-purple-950" },
+      { label: "Kubernetes/EKS", color: "bg-purple-950" },
+      { label: "AWS", color: "bg-purple-950" },
+      { label: "CI/CD" },
+      { label: "Agile" },
+    ],
     liveUrl: "",
     repoUrl: "",
     sections: [
@@ -325,13 +354,114 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: "What the project is and why you built it.",
+            text: `PHASE 1
+            CORE PRODUCT
+                ↓
+            [CORE]
+            Next.js + TypeScript
+            PostgreSQL
+            WebSockets
+            Redis
+            Authentication
+            Ephemeral messages
+            Message expiration
+                ↓
+            
+            PHASE 2
+            PRODUCTIONIZATION
+                ↓
+            [CORE]
+            Docker
+            AWS
+            CI/CD
+            Environment configuration
+            Secrets management
+            Health checks
+            
+            [WORTH LEARNING]
+            Terraform
+                ↓
+            
+            PHASE 3
+            SCALABILITY
+                ↓
+            [CORE]
+            Load balancing
+            Horizontal scaling
+            Redis Pub/Sub
+            Database connection pooling
+            
+            [WORTH LEARNING]
+            Kubernetes
+            AWS EKS
+            Stateless architecture
+                ↓
+            
+            PHASE 4
+            RELIABILITY
+                ↓
+            [CORE]
+            Idempotency
+            Message acknowledgements
+            Message recovery
+            WebSocket reconnection
+            Retries + exponential backoff
+            Graceful shutdown
+            Fault handling
+            
+            [WORTH LEARNING]
+            Delivery guarantees
+            Failure injection / chaos testing
+                ↓
+            
+            PHASE 5
+            PERFORMANCE
+                ↓
+            [CORE]
+            Load testing
+            Bottleneck identification
+            Database/query optimization
+            
+            [WORTH LEARNING]
+            Caching strategies
+            Capacity planning
+            WebSocket performance optimization
+                ↓
+            
+            PHASE 6
+            OBSERVABILITY
+                ↓
+            [CORE]
+            Structured logging
+            Metrics
+            Error tracking
+            Dashboards
+            Alerting
+            
+            [WORTH LEARNING]
+            OpenTelemetry
+            Distributed tracing
+            Prometheus + Grafana
+            SLIs / SLOs
+                ↓`,
           },
         ],
       },
       {
         title: "Process",
         blocks: [
+          {
+            type: "paragraph",
+            text: "Designing with reliability in mind",
+          },
+          {
+            type: "paragraph",
+            text: "Key decisions, tools, and how you approached it.",
+          },
+          {
+            type: "paragraph",
+            text: "Key decisions, tools, and how you approached it.",
+          },
           {
             type: "paragraph",
             text: "Key decisions, tools, and how you approached it.",
