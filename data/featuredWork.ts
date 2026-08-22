@@ -452,11 +452,15 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: "Designing with reliability in mind",
+            text: "Designing with principles: reliability, anonymity",
           },
           {
             type: "paragraph",
-            text: "Key decisions, tools, and how you approached it.",
+            text: "things to add: rate limiting, moderator token for creator, ",
+          },
+          {
+            type: "paragraph",
+            text: "decisions: auth is not implemented for anonymity,  ",
           },
           {
             type: "paragraph",

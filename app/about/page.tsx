@@ -21,7 +21,7 @@ export default function About() {
         <p>I mainly build web applications, APIs, and services with React (Next) and PostgreSQL. I am also familiar with Express, MongoDB, and Node.js. </p>
         <p>In school I studied machine learning, big data analytics, and statistics, gaining experience with Python and data science libraries.</p>
         <p>Currently I am diving deeper into scaling, optimization, and reliability, with a particular focus on building and operating production systems on AWS.</p>
-        <p>My favorite part about development is the iterative process: first making it work, then refining and optimizing. I also enjoy the creative side of development, a quality that I think software and cooking have in common. </p>
+        <p>My favorite part about development is the iterative process: first making it work, then refining and optimizing, a process that is also used in a culinary environment where you do the same thing every day. </p>
         <img src="/raptor.jpeg"></img>
         <p>Although primarily a web dev, I am open to all types of software development. </p>
         <p> Outside of coding I enjoy exploring different creative pursuits. My favorite forms of expression are cooking and 3D modeling. </p>
