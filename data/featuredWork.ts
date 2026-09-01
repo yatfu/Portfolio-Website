@@ -341,7 +341,7 @@ export const projects: Project[] = [
       { label: "PostgreSQL", color: "bg-blue-950" },
       { label: "WebSocket", color: "bg-blue-950" },
       { label: "Docker", color: "bg-purple-950" },
-      { label: "Kubernetes/EKS", color: "bg-purple-950" },
+      { label: "Kubernetes", color: "bg-purple-950" },
     ],
     liveUrl: "",
     repoUrl: "",
