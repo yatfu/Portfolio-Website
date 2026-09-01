@@ -11,8 +11,8 @@ const pressStart2P = Press_Start_2P({
 });
 
 export const metadata: Metadata = {
-  title: 'Your Name — Portfolio',
-  description: 'Portfolio of Your Name',
+  title: 'Keanu Lagundimao — Portfolio',
+  description: 'Portfolio of Keanu Lagundimao',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
