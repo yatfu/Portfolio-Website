@@ -161,7 +161,12 @@ export default function Menu() {
               <MenuRow link="/about" title="About Me" />
             </li>
             <li>
-              <MenuRow link="/resume.pdf" title="Resume" external download />
+              <MenuRow
+                link="/Keanu_Lagundimao.pdf"
+                title="Resume"
+                external
+                download
+              />
             </li>
           </MenuCategory>
         </div>

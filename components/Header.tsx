@@ -25,7 +25,7 @@ export default function Header() {
           <Link href="/contact" className={navLinkStyles}>
             Contact
           </Link>
-          <a href="/resume.pdf" download className={navLinkStyles}>
+          <a href="/Keanu_Lagundimao.pdf" download className={navLinkStyles}>
             Resume
           </a>
         </nav>
