@@ -351,96 +351,9 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: `PHASE 1
-            CORE PRODUCT
-                ↓
-            [CORE]
-            Next.js + TypeScript
-            PostgreSQL
-            WebSockets
-            Redis
-            Authentication
-            Ephemeral messages
-            Message expiration
-                ↓
-            
-            PHASE 2
-            PRODUCTIONIZATION
-                ↓
-            [CORE]
-            Docker
-            AWS
-            CI/CD
-            Environment configuration
-            Secrets management
-            Health checks
-            
-            [WORTH LEARNING]
-            Terraform
-                ↓
-            
-            PHASE 3
-            SCALABILITY
-                ↓
-            [CORE]
-            Load balancing
-            Horizontal scaling
-            Redis Pub/Sub
-            Database connection pooling
-            
-            [WORTH LEARNING]
-            Kubernetes
-            AWS EKS
-            Stateless architecture
-                ↓
-            
-            PHASE 4
-            RELIABILITY
-                ↓
-            [CORE]
-            Idempotency
-            Message acknowledgements
-            Message recovery
-            WebSocket reconnection
-            Retries + exponential backoff
-            Graceful shutdown
-            Fault handling
-            
-            [WORTH LEARNING]
-            Delivery guarantees
-            Failure injection / chaos testing
-                ↓
-            
-            PHASE 5
-            PERFORMANCE
-                ↓
-            [CORE]
-            Load testing
-            Bottleneck identification
-            Database/query optimization
-            
-            [WORTH LEARNING]
-            Caching strategies
-            Capacity planning
-            WebSocket performance optimization
-                ↓
-            
-            PHASE 6
-            OBSERVABILITY
-                ↓
-            [CORE]
-            Structured logging
-            Metrics
-            Error tracking
-            Dashboards
-            Alerting
-            
-            [WORTH LEARNING]
-            OpenTelemetry
-            Distributed tracing
-            Prometheus + Grafana
-            SLIs / SLOs
-                ↓`,
+            text: `notes: PERN, token hashing, anonymous authentication csrf tokens?, CSP, SQL injection protection, 
+            nextjs natively supporting websockets was still in experimental phase at the time, so I chose to use react instead of next to organize server roles: frontend server and backend server
+            `,
           },
         ],
       },

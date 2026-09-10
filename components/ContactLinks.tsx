@@ -14,7 +14,7 @@ export default function ContactLinks() {
         GitHub
       </a>
       <a
-        href="https://linkedin.com/in/your-profile"
+        href="https://www.linkedin.com/in/keanu-lagundimao"
         target="_blank"
         rel="noreferrer"
         className={cn(buttonBase, buttonVariants.ghost, buttonSizes.default)}

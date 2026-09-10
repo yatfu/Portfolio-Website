@@ -149,7 +149,7 @@ export default function Menu() {
             </li>
             <li>
               <MenuRow
-                link="https://linkedin.com/in/your-profile"
+                link="https://www.linkedin.com/in/keanu-lagundimao"
                 title="LinkedIn"
                 external
               />
