@@ -26,7 +26,7 @@ export default function Header() {
             Contact
           </Link>
           <a
-            href="/Keanu-Lagundimao-2026-9-14.pdf"
+            href="/Keanu%20Lagundimao_Full%20Stack%20Software%20Engineer.pdf"
             download
             className={navLinkStyles}
           >
