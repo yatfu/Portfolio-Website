@@ -162,7 +162,7 @@ export default function Menu() {
             </li>
             <li>
               <MenuRow
-                link="/Keanu_Lagundimao.pdf"
+                link="/Keanu-Lagundimao-2026-9-14.pdf"
                 title="Resume"
                 external
                 download
