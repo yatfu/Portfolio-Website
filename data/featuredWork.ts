@@ -330,7 +330,7 @@ export const projects: Project[] = [
   },
   {
     slug: "chatroom",
-    title: "Ephemeral Chat Platform - In Progress",
+    title: "Anonymous Messaging Platform - In Progress",
     summary: `A project focused on system design. Developed a distributed real-time messaging system with multi-instance communication, persistent messaging, and automated 24-hour room expiration, following Scrum framework. 
     Currently focusing on deeper topics such as deployment, scaling with load balancing, automation with CI/CD, reliability, and observability. `,
     coverImage: "",
@@ -351,47 +351,81 @@ export const projects: Project[] = [
         blocks: [
           {
             type: "paragraph",
-            text: `notes: PERN, token hashing, anonymous authentication csrf tokens?, CSP, SQL injection protection, 
-            nextjs natively supporting websockets was still in experimental phase at the time, so I chose to use react instead of next to organize server roles: frontend server and backend server
-            `,
+            text: "Work in progress: A distributed real-time messaging platform focused on system design, reliability, and anonymity.",
+          },
+          {
+            type: "paragraph",
+            text: "TODO: Describe who this platform is for, how temporary chat rooms work, and what you wanted to learn by building it.",
           },
         ],
       },
       {
-        title: "Process",
+        title: "Architecture",
         blocks: [
           {
             type: "paragraph",
-            text: "Designing with principles: reliability, anonymity",
+            text: "TODO: Explain the frontend, backend, and data flow. Describe the roles of PostgreSQL, Redis, and WebSockets, including how messages reach users across multiple server instances.",
           },
+          // Original notes: PERN; React instead of Next.js to separate frontend
+          // and backend server roles because native WebSocket support in Next.js
+          // was experimental at the time. Confirm the stack and tags when writing.
+          // Add an architecture diagram here using an image block.
           {
             type: "paragraph",
-            text: "things to add: rate limiting, moderator token for creator, ",
-          },
-          {
-            type: "paragraph",
-            text: "decisions: auth is not implemented for anonymity,  ",
-          },
-          {
-            type: "paragraph",
-            text: "Key decisions, tools, and how you approached it.",
-          },
-          {
-            type: "paragraph",
-            text: "Key decisions, tools, and how you approached it.",
-          },
-          {
-            type: "paragraph",
-            text: "Add an image or video block here — see the ProjectBlock type above for the shape.",
+            text: "TODO: Explain your technology choices and deployment approach, including Docker, Kubernetes, load balancing, and CI/CD where applicable.",
           },
         ],
       },
       {
-        title: "Outcome",
+        title: "Design",
         blocks: [
           {
             type: "paragraph",
-            text: "What shipped, what you learned, results or metrics if any.",
+            text: "TODO: Walk through creating a room, joining a conversation, and room expiration. Explain how reliability and anonymity guide the user experience.",
+          },
+          // Original note: account authentication is not implemented for anonymity.
+          // Add screenshots or a demo video here using ProjectBlock shapes above.
+          {
+            type: "paragraph",
+            text: "TODO: Describe the tradeoffs of anonymous participation and how the interface communicates connection status and temporary message history.",
+          },
+        ],
+      },
+      {
+        title: "Challenges",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "TODO: Describe a concrete engineering challenge, your first approach, what went wrong, and how you improved it. Consider multi-instance messaging, persistence, or automated 24-hour room expiration.",
+          },
+          // Original security notes to investigate: token hashing, anonymous
+          // authentication, CSRF tokens?, CSP, SQL injection protection.
+          // Planned additions: rate limiting and a moderator token for the creator.
+          {
+            type: "paragraph",
+            text: "TODO: Explain how you are approaching abuse prevention and security. Distinguish implemented protections from planned work and describe how you validate them.",
+          },
+        ],
+      },
+      {
+        title: "AI Usage",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "TODO: If you used AI tools, describe the tasks they helped with, what you handled yourself, and how you reviewed and tested their output. Remove this section if it does not apply.",
+          },
+        ],
+      },
+      {
+        title: "Reflection",
+        blocks: [
+          {
+            type: "paragraph",
+            text: "TODO: Summarize what works so far, what you have learned about distributed systems, and what you would approach differently.",
+          },
+          {
+            type: "paragraph",
+            text: "TODO: Outline the next milestones for deployment, scaling, CI/CD, reliability, and observability. Add measured results as they become available.",
           },
         ],
       },
